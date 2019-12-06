@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  connection: local
+  become: yes
+  vars:
+    description: "Essencial command line tools for my ubuntu"
+  user: root
+  tasks:
+  - name: Create atos user
+    user:
+      name: atos
+      state: present
+
+  - name: Install Essencial Packages
+    apt:
+      pkg:
+       - figlet
+       - tmux
+       - screenfetch
+      state: present
+    register: apt_packages
+
+  - debug:
+     var: apt_packages
