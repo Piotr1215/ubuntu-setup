@@ -27,7 +27,6 @@
   - name: Backing up existing ~/.zshrc
     shell: if [ -f ~/.zshrc ]; then mv ~/.zshrc{,.orig}; fi
     when: installation|success
-    sudo: no
 
   - name: Cloning  oh-my-zsh
     git:
@@ -35,14 +34,12 @@
       dest=~/.oh-my-zsh
     when: installation|success
     register: cloning
-    sudo: no
 
   - name: Creating new ~/.zshrc
     copy:
       src=~/.oh-my-zsh/templates/zshrc.zsh-template
       dest=~/.zshrc
     when: cloning|success
-    sudo: no
     
   - debug:
      var: apt_packages
