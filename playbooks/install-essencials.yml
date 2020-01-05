@@ -19,9 +19,10 @@
        - screenfetch
       state: present
     register: apt_packages
+    
   - name: Installing Zsh and git
-  apt: pkg=zsh,git state=latest
-  register: installation
+    apt: pkg=zsh,git state=latest
+    register: installation
 
   - name: Backing up existing ~/.zshrc
     shell: if [ -f ~/.zshrc ]; then mv ~/.zshrc{,.orig}; fi
