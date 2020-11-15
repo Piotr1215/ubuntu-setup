@@ -17,29 +17,17 @@
        - figlet
        - tmux
        - screenfetch
+       - pydf
+       - mc
+       - wget
+       - nnn
+       - mtr
+       - htop
       state: present
     register: apt_packages
-    
-  - name: Installing Zsh and git
-    apt: pkg=zsh,git state=latest
-    register: installation
 
-  - name: Backing up existing ~/.zshrc
-    shell: if [ -f ~/.zshrc ]; then mv ~/.zshrc{,.orig}; fi
-    when: installation|success
+  - name : Clean Up Cache
+    apt: autoclean=true
 
-  - name: Cloning  oh-my-zsh
-    git:
-      repo=https://github.com/robbyrussell/oh-my-zsh
-      dest=~/.oh-my-zsh
-    when: installation|success
-    register: cloning
-
-  - name: Creating new ~/.zshrc
-    copy:
-      src=~/.oh-my-zsh/templates/zshrc.zsh-template
-      dest=~/.zshrc
-    when: cloning|success
-    
   - debug:
      var: apt_packages

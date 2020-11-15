@@ -1,9 +1,11 @@
 
 sudo apt-get update
 
-sudo apt-get -y install python-pip python-dev libffi-dev libssl-dev
+sudo apt install software-properties-common
 
-pip install ansible --user
+sudo apt-add-repository --yes --update ppa:ansible/ansible
+
+sudo apt install ansible
 
 echo 'PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
 echo 'PATH=$HOME/.local/bin:$PATH' >> ~/.zshrc
