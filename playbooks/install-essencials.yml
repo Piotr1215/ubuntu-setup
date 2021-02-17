@@ -23,6 +23,7 @@
        - nnn
        - mtr
        - htop
+       - youtube-dl
       state: present
     register: apt_packages
 
