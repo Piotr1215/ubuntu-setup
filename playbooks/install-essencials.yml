@@ -24,6 +24,7 @@
        - mtr
        - htop
        - youtube-dl
+       - ncdu
       state: present
     register: apt_packages
 
