@@ -25,6 +25,7 @@
        - htop
        - youtube-dl
        - ncdu
+       - speedread
       state: present
     register: apt_packages
 
