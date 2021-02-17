@@ -26,6 +26,7 @@
        - youtube-dl
        - ncdu
        - speedread
+       - cmatrix
       state: present
     register: apt_packages
 
