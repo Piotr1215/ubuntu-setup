@@ -27,6 +27,8 @@
        - ncdu
        - speedread
        - cmatrix
+       - ranger
+       - pfetch
       state: present
     register: apt_packages
 
