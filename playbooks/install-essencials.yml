@@ -1,7 +1,8 @@
 ---
 - hosts: localhost
   connection: local
-  become: yes
+  become: true
+  become_user: root
   vars:
     description: "Essencial command line tools for my ubuntu"
   tasks:
@@ -22,7 +23,6 @@
           - nnn
           - mtr
           - htop
-          - youtube-dl
           - ncdu
           - cmatrix
           - ranger
