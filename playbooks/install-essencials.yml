@@ -26,7 +26,6 @@
           - ncdu
           - cmatrix
           - ranger
-          - pfetch
         state: present
       register: apt_packages
 
