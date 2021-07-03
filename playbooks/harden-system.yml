@@ -12,11 +12,6 @@
       - nmap-ncat
       - wpa_supplicant
   tasks:
-    - name: Perform full patching
-      package:
-        name: '*'
-        state: latest
-
     - name: Add SSH public key for user
       authorized_key:
         user: decoder
