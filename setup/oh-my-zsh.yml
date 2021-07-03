@@ -1,0 +1,11 @@
+---
+- hosts: webserver
+  become: yes
+  become_user: root
+  vars:
+    zsh_antigen_bundles_extras:
+      - nvm
+      - joel-porquet/zsh-dircolors-solarized
+    zsh_autosuggestions_bind_key: "^U"
+  roles:
+    - { role: viasite-ansible.zsh, zsh_user: decoder }
