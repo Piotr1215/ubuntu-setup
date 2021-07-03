@@ -12,12 +12,6 @@
       - nmap-ncat
       - wpa_supplicant
   tasks:
-    - name: Add SSH public key for user
-      authorized_key:
-        user: decoder
-        key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
-        state: present
-
     - name: Add sudoer rule for local user
       copy:
         dest: /etc/sudoers.d/decoder
