@@ -12,15 +12,6 @@
       - nmap-ncat
       - wpa_supplicant
   tasks:
-    - name: Add sudoer rule for local user
-      copy:
-        dest: /etc/sudoers.d/decoder
-        src: etc/sudoers.d/decoder
-        owner: root
-        group: root
-        mode: 0440
-        validate: /usr/sbin/visudo -csf %s
-
     - name: Add hardened SSH config
       copy:
         dest: /etc/ssh/sshd_config
