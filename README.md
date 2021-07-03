@@ -5,6 +5,7 @@ Set of bash scripts and Ansible playbooks to setup and config Ubuntu 18.04 serve
 This setup uses [Ansible Galaxy](https://galaxy.ansible.com/) roles 🌌
 
 Hardening part based on: https://ulayer.net/blog/2019/08/02/how-to-harden-ssh-configs-with-ansible-on-linux/
+Kubernetes bases on: https://github.com/geerlingguy/ansible-role-kubernetes
 
 ## Steps
 
@@ -24,6 +25,7 @@ Hardening part based on: https://ulayer.net/blog/2019/08/02/how-to-harden-ssh-co
 ```bash
     ansible-playbook -i hosts --ask-become-pass ./setup/install-essencials.yml
     ansible-playbook -i hosts --ask-become-pass ./setup/oh-my-zsh.yml
+    ansible-playbook -i hosts --ask-become-pass ./infrastructure/kubernetes.yml
 
     ansible-playbook -i hosts --ask-become-pass ./hardening/playbook.yml
 ```

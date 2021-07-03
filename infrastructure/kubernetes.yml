@@ -1,0 +1,9 @@
+- hosts: webserver
+  become: true
+  become_user: root
+
+  vars:
+    kubernetes_allow_pods_on_master: true
+
+  roles:
+    - geerlingguy.kubernetes
