@@ -4,36 +4,30 @@
   become: yes
   vars:
     description: "Essencial command line tools for my ubuntu"
-  user: root
   tasks:
-  - name: Create atos user
-    user:
-      name: atos
-      state: present
+    - name: Install Essencial Packages
+      apt:
+        pkg:
+          - figlet
+          - tmux
+          - screenfetch
+          - pydf
+          - mc
+          - wget
+          - nnn
+          - mtr
+          - htop
+          - youtube-dl
+          - ncdu
+          - speedread
+          - cmatrix
+          - ranger
+          - pfetch
+        state: present
+      register: apt_packages
 
-  - name: Install Essencial Packages
-    apt:
-      pkg:
-       - figlet
-       - tmux
-       - screenfetch
-       - pydf
-       - mc
-       - wget
-       - nnn
-       - mtr
-       - htop
-       - youtube-dl
-       - ncdu
-       - speedread
-       - cmatrix
-       - ranger
-       - pfetch
-      state: present
-    register: apt_packages
+    - name: Clean Up Cache
+      apt: autoclean=true
 
-  - name : Clean Up Cache
-    apt: autoclean=true
-
-  - debug:
-     var: apt_packages
+    - debug:
+        var: apt_packages
